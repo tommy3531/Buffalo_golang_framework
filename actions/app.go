@@ -52,6 +52,8 @@ func App() *buffalo.App {
 		app.Use(translations())
 
 		app.GET("/", HomeHandler)
+		app.GET("/twitter", TwitterHandler)
+		app.GET("/propublica", PropublicaHandler)
 
 		app.ServeFiles("/", assetsBox) // serve files from the public directory
 	}
