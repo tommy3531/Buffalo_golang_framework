@@ -10,7 +10,7 @@ import (
 	"log"
 
 )
-
+// "PropublicaHandler ..."
 func PropublicaHandler(c buffalo.Context) error {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", "https://api.propublica.org/congress/v1/115/senate/members.json", nil)
@@ -21,7 +21,7 @@ func PropublicaHandler(c buffalo.Context) error {
 	resp, err := client.Do(req)
 	defer resp.Body.Close()
 
-	var responseObject model.Response
+	var responseObject model.Politican
 	if err := json.NewDecoder(resp.Body).Decode(&responseObject); err != nil {
 		log.Println(err)
 	}
